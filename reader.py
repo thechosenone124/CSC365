@@ -10,15 +10,13 @@ TLastName = 6
 TFirstName = 7
 
 def getStudents():
-   with open('students.txt', 'rb') as csvfile:
-      output = list()
-      reader = csv.reader(csvfile, delimiter=',')
-      for row in reader:
-         output.append(row)
-      return output
+   try:
+      with open('students.txt', 'rb') as csvfile:
+         output = list()
+         reader = csv.reader(csvfile, delimiter=',')
+         for row in reader:
+            output.append(row)
+         return output
+   except:
+      exit(1)
 
-
-for row in getStudents():
-   print ", ".join(row)
-      
-      
