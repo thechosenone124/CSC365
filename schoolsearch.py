@@ -33,23 +33,33 @@ def grade_query(grade, csv_reader):
       if row['Grade'] == grade:
          print(row['StLastName'], row['StFirstName'])
 
-# Given a grade, print the last name and first name of each student in that grade
+# Given a grade, print the student, GPA, teacher, and bus route of the student with the
+# highest GPA in that grade
+#
+# Low option: Given a grade, print the student, GPA, teacher, and bus route of the
+# student with the lowest GPA in that grade
 def grade_option_query(grade, high_option, csv_reader):
    max_gpa = None
    min_gpa = None
+   max_row = None
+   min_row = None
 
    if high_option:
       for row in csv_reader:
          if row['Grade'] == grade:
             if max_gpa is None or row['GPA'] > max_gpa:
                max_gpa = row['GPA']
-      print(max_gpa)
+               max_row = row
+      print(max_row['StLastName'], max_row['StFirstName'], max_row['GPA'], 
+         max_row['TLastName'], max_row['TFirstName'], max_row['Bus'])
    else:
       for row in csv_reader:
          if row['Grade'] == grade:
             if min_gpa is None or row['GPA'] < min_gpa:
                min_gpa = row['GPA']
-      print(min_gpa)
+               min_row = row
+      print(min_row['StLastName'], min_row['StFirstName'], min_row['GPA'],
+         min_row['TLastName'], min_row['TFirstName'], min_row['Bus'])
 
 # Given a grade, calculate and print the average GPA score for the students in that grade
 def average_query(grade, csv_reader):
