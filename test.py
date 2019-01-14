@@ -22,7 +22,7 @@ class TestClass(unittest.TestCase):
    def test_last_name_search_bus(self):
        self.runTest("S: CORONADO B\nQ", "CORONADO DIMPLE 52\n" + prompt)
 
-   def test_last_name_search_bus(self):
+   def test_info(self):
        self.runTest("I\nQ", "0: 0\n" +
             "1: 2\n" +
             "2: 13\n" +
@@ -54,6 +54,10 @@ class TestClass(unittest.TestCase):
       self.runTest("G: 2 L\nQ", "KOZOLA BUSTER 2.76 HAMER GAVIN 55")
    def test_average(self):
       self.runTest("A: 2\nQ", "2: 2.946153846153846\n" + prompt)
+   def test_error_student(self):
+      self.runTest("S: B C D\nQ", prompt)
+   def test_error_teacher(self):
+      self.runTest("T: B C\nQ", prompt)
 
 if __name__ == '__main__':
    unittest.main()
