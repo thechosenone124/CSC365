@@ -2,7 +2,7 @@
 To run the program:
 make
 
-To run the thests
+To run the tests:
 make test
 
 This program requires python3, mock, and csv installed.
