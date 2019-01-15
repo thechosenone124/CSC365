@@ -1,2 +1,0 @@
-import schoolsearch
-schoolsearch.main()

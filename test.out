@@ -12,6 +12,6 @@ test_quit (__main__.TestClass) ... ok
 test_teacher (__main__.TestClass) ... ok
 
 ----------------------------------------------------------------------
-Ran 12 tests in 0.025s
+Ran 12 tests in 0.022s
 
 OK
