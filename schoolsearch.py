@@ -75,13 +75,15 @@ def average_query(grade, csv_reader):
    
 # For each grade (0 to 6) compute and report the total number of students in that grade   
 def info_query(csv_reader):
-   info = {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0}
+   #info = {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0}
+   info = [0, 0, 0, 0, 0, 0, 0]
+   print(info)
    
    for row in csv_reader:
-      info[row['Grade']] += 1
+      info[int(row['Grade'])] += 1
 
-   for i in info:
-      print(i + ":", info[i])
+   for i in range(len(info)):
+      print(str(i) + ":", info[i])
    
 def main():
    try:
