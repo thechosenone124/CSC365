@@ -77,7 +77,6 @@ def average_query(grade, csv_reader):
 def info_query(csv_reader):
    #info = {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0}
    info = [0, 0, 0, 0, 0, 0, 0]
-   print(info)
    
    for row in csv_reader:
       info[int(row['Grade'])] += 1

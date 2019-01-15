@@ -60,4 +60,5 @@ class TestClass(unittest.TestCase):
       self.runTest("T: B C\nQ", prompt)
 
 if __name__ == '__main__':
-   unittest.main()
+   suite = unittest.TestLoader().loadTestsFromTestCase(TestClass)
+   unittest.TextTestRunner(verbosity=2).run(suite)

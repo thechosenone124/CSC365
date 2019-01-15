@@ -1,0 +1,17 @@
+test_average (__main__.TestClass) ... ok
+test_bus (__main__.TestClass) ... ok
+test_error_student (__main__.TestClass) ... ok
+test_error_teacher (__main__.TestClass) ... ok
+test_grade (__main__.TestClass) ... ok
+test_grade_h (__main__.TestClass) ... ok
+test_grade_l (__main__.TestClass) ... ok
+test_info (__main__.TestClass) ... ok
+test_last_name_search (__main__.TestClass) ... ok
+test_last_name_search_bus (__main__.TestClass) ... ok
+test_quit (__main__.TestClass) ... ok
+test_teacher (__main__.TestClass) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.025s
+
+OK
