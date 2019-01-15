@@ -49,9 +49,9 @@ class TestClass(unittest.TestCase):
          "DELUNA KRYSTAL 4 112\n" + 
          "COMO ZANDRA 4 112\n" + prompt)
    def test_grade_h(self):
-      self.runTest("G: 2 H\nQ", "WICINSKY TERESE 3.22 HAMER GAVIN 53")
+      self.runTest("G: 2 H\nQ", "WICINSKY TERESE 3.22 HAMER GAVIN 53\n" + prompt)
    def test_grade_l(self):
-      self.runTest("G: 2 L\nQ", "KOZOLA BUSTER 2.76 HAMER GAVIN 55")
+      self.runTest("G: 2 L\nQ", "KOZOLA BUSTER 2.76 HAMER GAVIN 55\n" + prompt)
    def test_average(self):
       self.runTest("A: 2\nQ", "2: 2.946153846153846\n" + prompt)
    def test_error_student(self):
