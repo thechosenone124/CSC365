@@ -1,4 +1,6 @@
 import csv
+import pandas as pd
+import numpy as np
 
 # Given a student's last name, print the last name, first name, grade, and classroom
 # assignment for each student found and the name of their teacher (first and last name)
@@ -75,7 +77,6 @@ def average_query(grade, csv_reader):
    
 # For each grade (0 to 6) compute and report the total number of students in that grade   
 def info_query(csv_reader):
-   #info = {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0}
    info = [0, 0, 0, 0, 0, 0, 0]
    
    for row in csv_reader:
@@ -83,24 +84,91 @@ def info_query(csv_reader):
 
    for i in range(len(info)):
       print(str(i) + ":", info[i])
+
+# Given a classroom number, list all students assigned to it
+def nr_1(classroom, csv_reader):
+   for row in csv_reader:
+      if row['Classroom'] == classroom:
+         print(row['StLastName'], row['StFirstName'])
+
+# Given a classroom number, find the teach (or teachers) teaching in it
+def nr_2(classroom, csv_reader):
+   teachers = {}
+
+   for row in csv_reader:
+      if row['Classroom'] == classroom:
+         teachers.add(row['TLastName'], row['TFirstName'])
+
+   for teacher in teachers:
+      print(teacher)
+
+# Given a grade, find all teachers who teach it
+def nr_3(grade, csv_reader):
+   teachers = {}
+
+   for row in csv_reader:
+      if row['Grade'] == grade:
+         teachers.add(row['TLastName'], row['TFirstName'])
+
+   for teacher in teachers:
+      print(teacher)
+
+# Print a list of classrooms ordered by classroom number, with a total number of students
+# in each of the classrooms
+def nr_4(csv_reader):
+   classes = {}
+
+   for row in csv_reader:
+      if row['Classroom'] in classes:
+         classes[row['Classroom']] += 1
+      else:
+         classes[row['Classroom']] = 0
+
+   for key, value in sorted(classes.items(), key=lambda kv: kv[0]):
+      print(key, ':', value)
+
+# TODO
+#def gpa_by_grade(csv_reader): 
+   
+# TODO   
+#def gpa_by_teacher(csv_reader):
+
+#TODO
+#def gpa_by_bus(csv_reader):
+
+
+#Takes the list.txt and teachers.txt file and merges them into one big text file
+def createCSV():
+   listcols=['StLastName', 'StFirstName', 'Grade', 'Classroom', 'Bus', 'GPA']
+   teachercols = ['TLastName', 'TFirstName', 'Classroom']
+
+   df1 = pd.read_csv('list.txt', names=listcols, header=None)
+   df2 = pd.read_csv("teachers.txt", names=teachercols, header=None)
+
+   df3 = df1.merge(df2, on=["Classroom"], how='inner')
+   df3.to_csv("final.txt",index=False,header=False)
+   df3.to_csv("key.txt",index=False,header=True) #this one labels the columns
    
 def main():
+   createCSV()
+
    try:
-      with open('students.txt') as csv_file:
+      with open('final.txt') as csv_file:
          pass
    except IOError as e:
-      print("Unable to open students.txt")
+      print("Unable to open final.txt")
       exit(0)
 
-   csv_file = open("students.txt", "r")
+   csv_file = open("final.txt", "r")
    csv_reader = csv.DictReader(csv_file, fieldnames=['StLastName', 'StFirstName', 
       'Grade', 'Classroom', 'Bus', 'GPA', 'TLastName', 'TFirstName'])
    instr = ""
 
    while True:
-      instr = input("S[tudent]: <lastname> [B[us]]\n" + "T[eacher]: <lastname>\n" + 
-         "B[us]: <number>\n" + "G[rade]: <number> [H[igh]|L[ow]]\n" + 
-         "A[verage]: <number>\n" + "I[nfo]\n" + "Q[uit]\n")
+      instr = input("S[tudent]: <lastname> [B[us]]\n" + "T[eacher]: <lastname>\n" 
+         + "B[us]: <number>\n" + "G[rade]: <number> [H[igh]|L[ow]]\n" 
+         + "A[verage]: <number>\n" + "I[nfo]\n" + "NR1: <number>\n" + "NR2: <number>\n" 
+         + "NR3: <number>\n" + "NR4\n" + "Q[uit]\n")
 
       instrs = instr.split(" ")
 
@@ -131,8 +199,20 @@ def main():
       elif instrs[0] == "I" or instrs[0] == "Info":
          info_query(csv_reader)
          csv_file.seek(0)
+      elif instrs[0] == "NR1":
+         nr_1(instrs[1], csv_reader)
+         csv_file.seek(0)
+      elif instrs[0] == "NR2":
+         nr_2(instrs[1], csv_reader)
+         csv_file.seek(0)
+      elif instrs[0] == "NR3":
+         nr_3(instrs[1], csv_reader)
+         csv_file.seek(0)
+      elif instrs[0] == "NR4":
+         nr_4(csv_reader)
+         csv_file.seek(0)
       elif instrs[0] == "Q" or instrs[0] == "Quit":
          csv_file.close()
          return;
 
-         
+main()         
