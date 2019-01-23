@@ -54,8 +54,16 @@ class TestClass(unittest.TestCase):
       self.runTest("G: 2 L\nQ", "KOZOLA BUSTER 2.76 HAMER GAVIN 55\n" + prompt)
    def test_average(self):
       self.runTest("A: 2\nQ", "2: 2.946153846153846\n" + prompt)
+      
    def test_class_teacher(self):
-      self.runTest("C: 108 T\nQ", "HAMER GAVIN\n" + prompt)
+      self.runTest("NR1: 108\nQ", "HAMER GAVIN\n" + prompt)
+   def test_class_student(self):
+      self.runTest("NR2: 108\nQ",  + prompt)
+   def test_grade_teacher(self):
+      self.runTest("NR3: 1\nQ",  + prompt)
+   def test_grade_teacher(self):
+      self.runTest("NR4\nQ",  + prompt)
+      
    def test_error_student(self):
       self.runTest("S: B C D\nQ", prompt)
    def test_error_teacher(self):

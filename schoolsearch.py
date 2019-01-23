@@ -1,6 +1,5 @@
 import csv
-import pandas as pd
-import numpy as np
+import reader
 
 # Given a student's last name, print the last name, first name, grade, and classroom
 # assignment for each student found and the name of their teacher (first and last name)
@@ -135,22 +134,9 @@ def nr_4(csv_reader):
 
 #TODO
 #def gpa_by_bus(csv_reader):
-
-
-#Takes the list.txt and teachers.txt file and merges them into one big text file
-def createCSV():
-   listcols=['StLastName', 'StFirstName', 'Grade', 'Classroom', 'Bus', 'GPA']
-   teachercols = ['TLastName', 'TFirstName', 'Classroom']
-
-   df1 = pd.read_csv('list.txt', names=listcols, header=None)
-   df2 = pd.read_csv("teachers.txt", names=teachercols, header=None)
-
-   df3 = df1.merge(df2, on=["Classroom"], how='inner')
-   df3.to_csv("final.txt",index=False,header=False)
-   df3.to_csv("key.txt",index=False,header=True) #this one labels the columns
    
 def main():
-   createCSV()
+   reader.createCSV()
 
    try:
       with open('final.txt') as csv_file:
@@ -168,7 +154,7 @@ def main():
       instr = input("S[tudent]: <lastname> [B[us]]\n" + "T[eacher]: <lastname>\n" 
          + "B[us]: <number>\n" + "G[rade]: <number> [H[igh]|L[ow]]\n" 
          + "A[verage]: <number>\n" + "I[nfo]\n" + "NR1: <number>\n" + "NR2: <number>\n" 
-         + "NR3: <number>\n" + "NR4\n" + "Q[uit]\n")
+         + "NR3: <number>\n" + "NR4\n" + "NR5: [A[ll]|B[us]|G[rade]|T[eacher]\n" + "Q[uit]\n")
 
       instrs = instr.split(" ")
 
@@ -199,18 +185,21 @@ def main():
       elif instrs[0] == "I" or instrs[0] == "Info":
          info_query(csv_reader)
          csv_file.seek(0)
-      elif instrs[0] == "NR1":
+      elif instrs[0] == "NR1:":
          nr_1(instrs[1], csv_reader)
          csv_file.seek(0)
-      elif instrs[0] == "NR2":
+      elif instrs[0] == "NR2:":
          nr_2(instrs[1], csv_reader)
          csv_file.seek(0)
-      elif instrs[0] == "NR3":
+      elif instrs[0] == "NR3:":
          nr_3(instrs[1], csv_reader)
          csv_file.seek(0)
       elif instrs[0] == "NR4":
          nr_4(csv_reader)
          csv_file.seek(0)
+      elif instrs[0] == "NR5:":
+         reader.gradeTeacherBusCSV(instrs[1])
+         print("output to analysis.csv!\n")
       elif instrs[0] == "Q" or instrs[0] == "Quit":
          csv_file.close()
          return;
