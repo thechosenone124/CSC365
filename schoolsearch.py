@@ -92,22 +92,22 @@ def nr_1(classroom, csv_reader):
 
 # Given a classroom number, find the teach (or teachers) teaching in it
 def nr_2(classroom, csv_reader):
-   teachers = {}
+   teachers = set()
 
    for row in csv_reader:
       if row['Classroom'] == classroom:
-         teachers.add(row['TLastName'], row['TFirstName'])
+         teachers.add(row['TLastName'] + ' ' + row['TFirstName'])
 
    for teacher in teachers:
       print(teacher)
 
 # Given a grade, find all teachers who teach it
 def nr_3(grade, csv_reader):
-   teachers = {}
+   teachers = set()
 
    for row in csv_reader:
       if row['Grade'] == grade:
-         teachers.add(row['TLastName'], row['TFirstName'])
+         teachers.add(row['TLastName'] + ' ' + row['TFirstName'])
 
    for teacher in teachers:
       print(teacher)
