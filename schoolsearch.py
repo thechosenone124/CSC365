@@ -121,19 +121,10 @@ def nr_4(csv_reader):
       if row['Classroom'] in classes:
          classes[row['Classroom']] += 1
       else:
-         classes[row['Classroom']] = 0
+         classes[row['Classroom']] = 1
 
    for key, value in sorted(classes.items(), key=lambda kv: kv[0]):
       print(key, ':', value)
-
-# TODO
-#def gpa_by_grade(csv_reader): 
-   
-# TODO   
-#def gpa_by_teacher(csv_reader):
-
-#TODO
-#def gpa_by_bus(csv_reader):
    
 def main():
    reader.createCSV()
