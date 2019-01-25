@@ -62,7 +62,7 @@ class TestClass(unittest.TestCase):
    def test_grade_teacher(self):
       self.runTest("NR3: 1\nQ",  + prompt)
    def test_grade_teacher(self):
-      self.runTest("NR4\nQ",  + prompt)
+      self.runTest("NR4\nQ", "FALKER ADOLPH\n" + prompt)
       
    def test_error_student(self):
       self.runTest("S: B C D\nQ", prompt)
