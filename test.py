@@ -56,13 +56,24 @@ class TestClass(unittest.TestCase):
       self.runTest("A: 2\nQ", "2: 2.946153846153846\n" + prompt)
       
    def test_class_teacher(self):
-      self.runTest("NR1: 108\nQ", "HAMER GAVIN\n" + prompt)
+      self.runTest("NR1: 101\nQ", "DURAND CARLEE\n" + prompt)
    def test_class_student(self):
-      self.runTest("NR2: 108\nQ",  + prompt)
+      self.runTest("NR2: 108\nQ", "HAMER GAVIN\n" + prompt)
    def test_grade_teacher(self):
-      self.runTest("NR3: 1\nQ",  + prompt)
+      self.runTest("NR3: 1\nQ", "FALKER ADOLPH\n" + prompt)
    def test_grade_teacher(self):
-      self.runTest("NR4\nQ", "FALKER ADOLPH\n" + prompt)
+      self.runTest("NR4\nQ", "101 1\n" +
+      "102 : 5\n" +
+      "103 : 2\n" +
+      "104 : 2\n" +
+      "105 : 6\n" +
+      "106 : 2\n" +
+      "107 : 7\n" +
+      "108 : 11\n" +
+      "109 : 5\n" +
+      "110 : 2\n" +
+      "111 : 9\n" +
+      "112 : 8\n" + prompt)
       
    def test_error_student(self):
       self.runTest("S: B C D\nQ", prompt)
