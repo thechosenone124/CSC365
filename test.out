@@ -1,5 +1,5 @@
 test_average (__main__.TestClass) ... ok
-test_bus (__main__.TestClass) ... FAIL
+test_bus (__main__.TestClass) ... ok
 test_class_student (__main__.TestClass) ... ok
 test_class_teacher (__main__.TestClass) ... ok
 test_error_student (__main__.TestClass) ... ok
@@ -7,73 +7,14 @@ test_error_teacher (__main__.TestClass) ... ok
 test_grade (__main__.TestClass) ... ok
 test_grade_h (__main__.TestClass) ... ok
 test_grade_l (__main__.TestClass) ... ok
-test_grade_teacher (__main__.TestClass) ... FAIL
+test_grade_teacher (__main__.TestClass) ... ok
 test_info (__main__.TestClass) ... ok
 test_last_name_search (__main__.TestClass) ... ok
 test_last_name_search_bus (__main__.TestClass) ... ok
 test_quit (__main__.TestClass) ... ok
 test_teacher (__main__.TestClass) ... ok
 
-======================================================================
-FAIL: test_bus (__main__.TestClass)
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "test.py", line 51, in test_bus
-    "COMO ZANDRA 4 112\n" + prompt)
-  File "test.py", line 15, in runTest
-    self.assertEqual(fake_out.getvalue().strip(), (prompt + expected_out).strip())
-AssertionError: 'S[tu[221 chars]t]\nCIGANEK MANIE 3 107\nLINHART LELA 3 107\nC[376 chars]uit]' != 'S[tu[221 chars]t]\nCORKER CARTER 4 105\nWORBINGTON DEEDRA 4 1[376 chars]uit]'
-Diff is 804 characters long. Set self.maxDiff to None to see it.
+Ran 15 tests in 0.158s
 
-======================================================================
-FAIL: test_grade_teacher (__main__.TestClass)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "test.py", line 77, in test_grade_teacher
-    "112 : 8\n" + prompt)
-  File "test.py", line 15, in runTest
-    self.assertEqual(fake_out.getvalue().strip(), (prompt + expected_out).strip())
-AssertionError: 'S[tu[224 chars]n101 : 1\n102 : 5\n103 : 2\n104 : 2\n105 : 6\n[287 chars]uit]' != 'S[tu[224 chars]n101 1\n102 : 5\n103 : 2\n104 : 2\n105 : 6\n10[285 chars]uit]'
-  S[tudent]: <lastname> [B[us]]
-  T[eacher]: <lastname>
-  B[us]: <number>
-  G[rade]: <number> [H[igh]|L[ow]]
-  A[verage]: <number>
-  I[nfo]
-  NR1: <number>
-  NR2: <number>
-  NR3: <number>
-  NR4
-  NR5: [A[ll]|B[us]|G[rade]|T[eacher]
-  Q[uit]
-- 101 : 1
-?     --
-+ 101 1
-  102 : 5
-  103 : 2
-  104 : 2
-  105 : 6
-  106 : 2
-  107 : 7
-  108 : 11
-  109 : 5
-  110 : 2
-  111 : 9
-  112 : 8
-  S[tudent]: <lastname> [B[us]]
-  T[eacher]: <lastname>
-  B[us]: <number>
-  G[rade]: <number> [H[igh]|L[ow]]
-  A[verage]: <number>
-  I[nfo]
-  NR1: <number>
-  NR2: <number>
-  NR3: <number>
-  NR4
-  NR5: [A[ll]|B[us]|G[rade]|T[eacher]
-  Q[uit]
-
-----------------------------------------------------------------------
-Ran 15 tests in 0.149s
-
-FAILED (failures=2)
+OK
