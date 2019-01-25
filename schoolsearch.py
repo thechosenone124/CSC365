@@ -194,5 +194,3 @@ def main():
       elif instrs[0] == "Q" or instrs[0] == "Quit":
          csv_file.close()
          return;
-
-main()         
