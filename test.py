@@ -40,13 +40,13 @@ class TestClass(unittest.TestCase):
    def test_grade(self):
       self.runTest("G: 1\nQ", "SAELEE DANILO\n" + "GARTH JOHN\n" + prompt)
    def test_bus(self):
-      self.runTest("B: 53\nQ", "CORKER CARTER 4 105\n" + 
-         "WORBINGTON DEEDRA 4 112\n" + 
-         "CIGANEK MANIE 3 107\n" + 
-         "SPANICEK KENDRA 4 112\n" + 
-         "CLECKLER FLOY 6 109\n" + 
-         "WICINSKY TERESE 2 108\n" + 
+      self.runTest("B: 53\nQ", "CIGANEK MANIE 3 107\n" +
          "LINHART LELA 3 107\n" + 
+         "CLECKLER FLOY 6 109\n" +          
+         "CORKER CARTER 4 105\n" + 
+         "WICINSKY TERESE 2 108\n" + 
+         "WORBINGTON DEEDRA 4 112\n" + 
+         "SPANICEK KENDRA 4 112\n" + 
          "DELUNA KRYSTAL 4 112\n" + 
          "COMO ZANDRA 4 112\n" + prompt)
    def test_grade_h(self):
