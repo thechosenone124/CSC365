@@ -3,9 +3,10 @@ from unittest.mock import patch
 import io
 import schoolsearch
       
-prompt = ("S[tudent]: <lastname> [B[us]]\n" + "T[eacher]: <lastname>\n" + 
-         "B[us]: <number>\n" + "G[rade]: <number> [H[igh]|L[ow]]\n" + 
-         "A[verage]: <number>\n" + "I[nfo]\n" + "Q[uit]\n")
+prompt = ("S[tudent]: <lastname> [B[us]]\n" + "T[eacher]: <lastname>\n" 
+         + "B[us]: <number>\n" + "G[rade]: <number> [H[igh]|L[ow]]\n" 
+         + "A[verage]: <number>\n" + "I[nfo]\n" + "NR1: <number>\n" + "NR2: <number>\n" 
+         + "NR3: <number>\n" + "NR4\n" + "NR5: [A[ll]|B[us]|G[rade]|T[eacher]\n" + "Q[uit]\n")
          
 class TestClass(unittest.TestCase):
    def runTest(self, given_answer, expected_out):
